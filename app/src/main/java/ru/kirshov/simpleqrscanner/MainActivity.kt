@@ -3,11 +3,15 @@ package ru.kirshov.simpleqrscanner
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import ru.kirshov.simpleqrscanner.ui.Screen
 import ru.kirshov.simpleqrscanner.ui.theme.SimpleQrScannerTheme
 
 class MainActivity : ComponentActivity() {
@@ -16,24 +20,13 @@ class MainActivity : ComponentActivity() {
         setContent {
 
             SimpleQrScannerTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
-                }
+               Scaffold(
+                   content = {
+                       Screen(modifier = Modifier.fillMaxWidth())
+                   }
+               )
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    SimpleQrScannerTheme {
-        Greeting("Android")
-    }
-}
