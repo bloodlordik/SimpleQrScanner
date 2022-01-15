@@ -3,6 +3,7 @@ package ru.kirshov.simpleqrscanner.ui
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ru.kirshov.simpleqrscanner.imageAnalizer.QrCodeAnalysis
@@ -12,7 +13,7 @@ fun Content(){
     var qrCodeResult by remember {
         mutableStateOf("Qr code")
     }
-    Column(modifier = Modifier.fillMaxWidth()) {
+    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
         CameraView(
             modifier = Modifier.padding(12.dp).aspectRatio(1F),
             imageAnalysis = QrCodeAnalysis{
