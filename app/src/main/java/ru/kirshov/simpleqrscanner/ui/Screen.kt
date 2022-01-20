@@ -13,12 +13,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import ru.kirshov.simpleqrscanner.R
 import ru.kirshov.simpleqrscanner.tools.RequestPermissionDialog
 
 
 @Composable
 fun Screen(modifier: Modifier = Modifier){
+    val context = LocalContext.current
     RequestPermissionDialog(content = { Content()  },
-    error = { ErrorPage() })
+    error = { ErrorPage(errorText = context.getString(R.string.camera_error)) })
     
 }

@@ -11,16 +11,20 @@ import ru.kirshov.simpleqrscanner.imageAnalizer.QrCodeAnalysis
 @Composable
 fun Content(){
     var qrCodeResult by remember {
-        mutableStateOf("Qr code")
+        mutableStateOf("")
     }
     Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
         CameraView(
-            modifier = Modifier.padding(12.dp).aspectRatio(1F),
+            modifier = Modifier
+                .padding(12.dp)
+                .aspectRatio(1F),
             imageAnalysis = QrCodeAnalysis{
                 qrCodeResult = it
             }
         )
         Spacer(modifier = Modifier.height(12.dp))
-        Text(text = qrCodeResult)
+        if (qrCodeResult.isNotBlank()){
+            ResultWidget(result = qrCodeResult)
+        }
     }
 }

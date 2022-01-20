@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Simple Qr Scanner</string>
+    <string name="camera_error">camera permission error</string>
 </resources>
