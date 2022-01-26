@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
 
-            SimpleQrScannerTheme {
+            SimpleQrScannerTheme() {
                Scaffold(
                    content = {
                        Screen(modifier = Modifier.fillMaxWidth())
