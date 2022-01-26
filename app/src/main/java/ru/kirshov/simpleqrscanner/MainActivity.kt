@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
             SimpleQrScannerTheme() {
                Scaffold(
                    content = {
-                       Screen(modifier = Modifier.fillMaxWidth())
+                       Screen()
                    }
                )
             }
