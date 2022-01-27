@@ -1,5 +1,6 @@
 package ru.kirshov.simpleqrscanner.ui
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
@@ -19,8 +20,7 @@ fun Content(){
     Column(modifier = Modifier
         .fillMaxWidth()
         .padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-        Card(onClick = {  },
-        elevation = 4.dp) {
+        Card(elevation = 4.dp) {
             CameraView(
                 modifier = Modifier.aspectRatio(1F),
                 imageAnalysis = QrCodeAnalysis{
@@ -30,8 +30,13 @@ fun Content(){
         }
 
         Spacer(modifier = Modifier.height(12.dp))
-        if (qrCodeResult.isNotBlank()){
-            ResultWidget(result = qrCodeResult)
+        AnimatedVisibility(visible = qrCodeResult.isNotBlank()) {
+            CameraView(
+                modifier = Modifier.aspectRatio(1F),
+                imageAnalysis = QrCodeAnalysis{
+                    qrCodeResult = it
+                }
+            )
         }
     }
 }
