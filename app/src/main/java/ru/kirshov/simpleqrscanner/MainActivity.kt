@@ -23,6 +23,9 @@ class MainActivity : ComponentActivity() {
                Scaffold(
                    content = {
                        Screen()
+                   },
+                   bottomBar = {
+
                    }
                )
             }
